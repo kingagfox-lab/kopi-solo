@@ -1,0 +1,934 @@
+<!-- Landing Page Kopi Solo - Mobile -->
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kopi Solo - Warisan Surakarta, Cita Rasa Masa Kini</title>
+<!-- Tailwind CSS v3 CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display (Heritage Serif) & Plus Jakarta Sans (Clean Modern Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#EFEBE4',     // Primary light warm parchment
+              card: '#FBF9F5',      // Soft elevated container tint
+              coffee: '#3E2723',    // Deep warm coffee brown
+              gold: '#D4AF37',      // Warm golden amber for accents
+              espresso: '#2C1A1D',  // Espresso dark wine/roast
+              accent: '#8B5A2B',    // Roasted hazelnut accent
+              muted: '#716560'      // Balanced reading muted tone
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'warm': '0 8px 24px -4px rgba(62, 39, 35, 0.08), 0 2px 6px -1px rgba(62, 39, 35, 0.04)',
+            'warm-lg': '0 14px 32px -4px rgba(44, 26, 29, 0.12), 0 4px 10px -2px rgba(44, 26, 29, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Styles for iOS smooth scrolling & decorative elements -->
+<style data-purpose="base-typography">
+    body {
+      background-color: #EFEBE4;
+      color: #3E2723;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-heritage {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+  </style>
+<style data-purpose="custom-decorations">
+    /* Subtle batik inspired wave pattern overlay */
+    .bg-heritage-pattern {
+      background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #efebe4 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      opacity: 0.18;
+    }
+    .badge-amber {
+      background-color: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #7A5800;
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-coffee min-h-screen antialiased flex flex-col justify-start items-center">
+<!-- Mobile Viewport Wrapper (iPhone / iOS target screen) -->
+<div class="w-full max-w-md min-h-screen bg-brand-cream shadow-2xl relative overflow-x-hidden flex flex-col border-x border-[#dfd7cc]">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-brand-cream/95 backdrop-blur-md border-b border-[#dfd7cc]" data-purpose="mobile-navbar">
+<div class="px-5 py-3.5 flex items-center justify-between">
+<!-- Logo Kopi Solo -->
+<a aria-label="Kopi Solo Homepage" class="group flex items-center gap-2.5" href="#beranda">
+<div class="w-9 h-9 rounded-full bg-brand-espresso flex items-center justify-center text-brand-gold shadow-md">
+<!-- Steaming Cup Glyph -->
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M2,21H20V19H2M20,8H18V5H20M20,3H4V13A4,4 0 0,0 8,17H14A4,4 0 0,0 18,13V10H20A2,2 0 0,0 22,8V5A2,2 0 0,0 20,3Z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-heritage text-lg font-bold tracking-tight text-brand-espresso leading-none">KOPI SOLO</span>
+<span class="text-[9px] tracking-widest uppercase font-medium text-brand-gold pt-0.5">Surakarta 1928</span>
+</div>
+</a>
+<!-- Mobile Quick Links & Burger Toggle -->
+<div class="flex items-center gap-2">
+<a class="text-xs font-semibold px-2.5 py-1.5 rounded-full bg-brand-espresso text-brand-cream hover:bg-brand-coffee transition-colors shadow-sm" href="#koleksi">
+            Koleksi
+          </a>
+<button aria-label="Buka Menu" class="p-2 rounded-lg text-brand-espresso hover:bg-[#e4ddd4] transition-colors focus:outline-none" id="mobileMenuBtn">
+<svg class="w-6 h-6" fill="none" id="menuIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<svg class="w-6 h-6 hidden" fill="none" id="closeIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Slide-down Collapsible Mobile Menu -->
+<nav class="hidden px-5 py-4 bg-[#f6f2ec] border-t border-[#e2dacf] space-y-2 text-sm font-medium transition-all" data-purpose="mobile-dropdown-menu" id="mobileMenu">
+<a class="mobile-nav-link block py-2 px-3 rounded hover:bg-[#ece5dc] text-brand-coffee" href="#beranda">Beranda</a>
+<a class="mobile-nav-link block py-2 px-3 rounded hover:bg-[#ece5dc] text-brand-coffee" href="#filosofi">Bahan &amp; Filosofi</a>
+<a class="mobile-nav-link block py-2 px-3 rounded hover:bg-[#ece5dc] text-brand-coffee" href="#koleksi">Koleksi Produk</a>
+<a class="mobile-nav-link block py-2 px-3 rounded hover:bg-[#ece5dc] text-brand-coffee" href="#testimoni">Testimoni Pelanggan</a>
+<a class="mobile-nav-link block py-2 px-3 rounded hover:bg-[#ece5dc] text-brand-coffee" href="#promo">Cerita &amp; Promo</a>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<!-- 1. Hero Section (Navigasi + Product Intro) -->
+<section class="relative pt-6 pb-10 px-5 overflow-hidden" data-purpose="hero-section" id="beranda">
+<!-- Subtle Pattern Backdrop -->
+<div class="absolute inset-0 bg-heritage-pattern pointer-events-none"></div>
+<div class="relative z-10">
+<!-- Tagline Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full badge-amber mb-3 text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+            Tradisi Racikan Keraton &amp; Pasar Tradisional
+          </div>
+<!-- Headline -->
+<h1 class="font-heritage text-3xl leading-tight font-extrabold text-brand-espresso mb-3">
+            Kopi Solo: <span class="italic font-normal text-brand-accent">Warisan Surakarta,</span> Cita Rasa Masa Kini
+          </h1>
+<!-- Subheadline -->
+<p class="text-sm leading-relaxed text-brand-muted mb-5">
+            Racikan kopi pilihan dari sangrai tradisional Solo untuk menemani setiap cerita, kehangatan paseduluran, dan suasana hari Anda.
+          </p>
+<!-- Primary CTA Button -->
+<div class="flex items-center gap-3 mb-7">
+<a class="flex-1 text-center py-3.5 px-5 bg-brand-espresso text-brand-cream rounded-xl font-semibold text-sm hover:bg-brand-coffee shadow-warm transition-transform active:scale-[0.98] flex items-center justify-center gap-2" href="#koleksi">
+<span>Lihat Koleksi Kopi</span>
+<svg class="w-4 h-4 fill-none stroke-current stroke-2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<a class="py-3.5 px-4 bg-brand-card border border-[#d8d0c4] text-brand-coffee rounded-xl font-semibold text-sm hover:bg-white active:scale-[0.98] transition" href="#filosofi">
+              Cerita
+            </a>
+</div>
+<!-- Hero Visual Representation -->
+<div class="relative rounded-2xl overflow-hidden border border-[#dfd7cc] shadow-warm bg-brand-card" data-purpose="hero-visual">
+<img alt="Secangkir kopi tubruk tradisional Solo dan biji kopi sangrai" class="w-full h-56 object-cover object-center" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6uTeKtYJ7sSmKiXbeCimsl_Kz_YTaabod56JPiWtXwFbyWNenGCW2KiiqxSeEy6PJcu3DfhQ_p35r721YJZIr96HSDrMkudO71s7H9AMuy3AOaQjZYT3UhNdqLohOZov8gYH327fJqmvkWV0t0LgwOyHAB8-HU7Daa8gUOHBaALiqA0yxC9-6pV5h_NKh9yFhKQQ6dnPLcFWKRfgV8MQRoT5V4A_g7RvtF1NgAkpB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-brand-espresso/80 via-transparent to-transparent flex items-end p-4">
+<div class="text-white">
+<p class="text-[11px] uppercase tracking-wider text-brand-gold font-medium">Tradisi Tubruk Mangkunegaran</p>
+<p class="font-heritage text-base font-semibold leading-snug">Aroma Khas Sangrai Kayu Arang Nusantara</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: KeyDetailsSection -->
+<!-- 2. Key Details (Keaslian & Makna Motif/Racikan) -->
+<section class="py-10 px-5 bg-[#ebe6dd] border-y border-[#dfd7cc]" data-purpose="key-details-section" id="filosofi">
+<div class="text-center mb-7">
+<span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Keaslian &amp; Makna</span>
+<h2 class="font-heritage text-2xl font-bold text-brand-espresso mt-1">Mengenal Kopi Solo</h2>
+<p class="text-xs text-brand-muted mt-1.5 max-w-xs mx-auto">Setiap biji dan racikan punya cerita, disangrai dengan teliti penuh penghayatan rasa.</p>
+</div>
+<!-- 4 Grid Cards -->
+<div class="grid grid-cols-2 gap-3" data-purpose="key-points-grid">
+<!-- Card 1 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-8 h-8 rounded-lg bg-amber-100/80 text-brand-accent flex items-center justify-center mb-3">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18C13.66,18 15,16.66 15,15V9A3,3 0 0,0 12,6Z"></path></svg>
+</div>
+<h3 class="font-bold text-xs text-brand-espresso mb-1">Biji Kopi Pilihan</h3>
+<p class="text-[11px] text-brand-muted leading-relaxed">Petikan tangan petani lokal dan sangrai khas Surakarta yang otentik.</p>
+</div>
+<div class="mt-2 text-[9px] font-bold text-brand-gold uppercase tracking-wider">Mutu Terjamin</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-8 h-8 rounded-lg bg-amber-100/80 text-brand-accent flex items-center justify-center mb-3">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path></svg>
+</div>
+<h3 class="font-bold text-xs text-brand-espresso mb-1">Filosofi Racikan</h3>
+<p class="text-[11px] text-brand-muted leading-relaxed">Melambangkan kehangatan paseduluran dan ketenangan khas Solo.</p>
+</div>
+<div class="mt-2 text-[9px] font-bold text-brand-gold uppercase tracking-wider">Tradisi Luhur</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-8 h-8 rounded-lg bg-amber-100/80 text-brand-accent flex items-center justify-center mb-3">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7L16,11.3V18H8V11.3L12,7.7Z"></path></svg>
+</div>
+<h3 class="font-bold text-xs text-brand-espresso mb-1">Varian Autentik</h3>
+<p class="text-[11px] text-brand-muted leading-relaxed">Dari tubruk legendaris, rempah Pasar Gede, hingga cita rasa modern.</p>
+</div>
+<div class="mt-2 text-[9px] font-bold text-brand-gold uppercase tracking-wider">Ragam Racikan</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-8 h-8 rounded-lg bg-amber-100/80 text-brand-accent flex items-center justify-center mb-3">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,16.5L6,12.5L7.41,11.09L10,13.67L16.59,7.09L18,8.5L10,16.5Z"></path></svg>
+</div>
+<h3 class="font-bold text-xs text-brand-espresso mb-1">Bahan Pilihan</h3>
+<p class="text-[11px] text-brand-muted leading-relaxed">Segar, higienis, ramah di lambung serta memiliki aroma yang memikat.</p>
+</div>
+<div class="mt-2 text-[9px] font-bold text-brand-gold uppercase tracking-wider">Kualitas Prima</div>
+</div>
+</div>
+</section>
+<!-- END: KeyDetailsSection -->
+<!-- BEGIN: ProductHighlightsSection -->
+<!-- 3. Product Highlights (Koleksi & Harga) -->
+<section class="py-10 px-5" data-purpose="product-highlights-section" id="koleksi">
+<div class="flex items-end justify-between mb-6">
+<div>
+<span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Menu Andalan</span>
+<h2 class="font-heritage text-2xl font-bold text-brand-espresso mt-0.5">Koleksi Pilihan</h2>
+<p class="text-xs text-brand-muted mt-1">Untuk seduh santai di rumah maupun teman kerja harian.</p>
+</div>
+</div>
+<!-- Product Cards Stack -->
+<div class="space-y-4" data-purpose="product-list">
+<!-- Product 1 -->
+<div class="bg-brand-card p-4 rounded-2xl border border-[#ded5c8] shadow-warm flex gap-3.5 items-center">
+<img alt="Kemasan Kopi Tubruk Blend Solo" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-[#e4ded4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8SqH2RK-qoMEIZ6M2C29oXpJcuXRrGoFuvIAyKfM53Ovw2FGo6zNENy26T55i9zGl7fZV48fkB-nsTf7VM1S6YbsUUVGLQT8m24FcZ6-MkJkPXC5VAvhGzj4QjvQpUPxKpZ0dAD_5rcTB_ZKmTJ95fpY8WVCOQOi90A7HEO15C5y_ufZqa9IQaVf3akP8KGgjW_n1ySUMcBRT1k8BiTJW51G86ohKVmVM2lXsmY7Y"/>
+<div class="flex-grow min-w-0">
+<span class="text-[10px] font-semibold text-brand-accent tracking-wide uppercase">Tradisional Blend</span>
+<h3 class="font-heritage font-bold text-sm text-brand-espresso truncate">Kopi Tubruk Blend Solo (250g)</h3>
+<p class="text-[11px] text-brand-muted line-clamp-2 mt-0.5">Perpaduan Robusta &amp; Arabika lokal yang mantap, pekat, dan harum sedap.</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-bold text-xs text-brand-espresso">Rp 65.000</span>
+<button class="px-3 py-1 bg-brand-espresso text-brand-cream text-xs rounded-lg font-medium hover:bg-brand-coffee active:scale-95 transition-all">
+                  Pesan
+                </button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-brand-card p-4 rounded-2xl border border-[#ded5c8] shadow-warm flex gap-3.5 items-center">
+<img alt="Kemasan Kopi Rempah Pasargede" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-[#e4ded4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBppiYVrbd41xd3rkYePnDSk2NvQMhGYIjVCAPYQIn7HisYkstDoGWE3doAtnKOFMzLgP6aDYVQ80kVKVvbTBqdM2cFUQZncPH8EAiPTmkU_MTz2lmBD443db3FRVh4ZffbC7KT_kWZ2V36dVcsilriZmxVDYmQROsSB2TU7IifmLPjPrYC9s_TTT-zgQemrBIFLOJ6czJ8SfU3AdtxKeyD-Y80fyxDJBS-fg4zqVg6"/>
+<div class="flex-grow min-w-0">
+<span class="text-[10px] font-semibold text-brand-gold tracking-wide uppercase">Best Seller Pasar Gede</span>
+<h3 class="font-heritage font-bold text-sm text-brand-espresso truncate">Kopi Rempah Pasargede (200g)</h3>
+<p class="text-[11px] text-brand-muted line-clamp-2 mt-0.5">Sentuhan cengkeh, kapulaga, &amp; kayu manis khas racikan jamu Solo.</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-bold text-xs text-brand-espresso">Rp 75.000</span>
+<button class="px-3 py-1 bg-brand-espresso text-brand-cream text-xs rounded-lg font-medium hover:bg-brand-coffee active:scale-95 transition-all">
+                  Pesan
+                </button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-brand-card p-4 rounded-2xl border border-[#ded5c8] shadow-warm flex gap-3.5 items-center">
+<img alt="Botol Cold Brew Heritage Solo" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-[#e4ded4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWmSDIgIqjDIeE1EJNBfJONkspPEqVi34hrds9p9VE46K9l8A80GkmiVKkg7IugMWHZgyXo5WPiJ837UZkX3s7wGGcXw4szj_CpwzDkDl7bEBjG70Ic9Q8EE2gyq7VwWMn9B_NTrqUktNi4u0svkvCi1HUIX2HYwNxzCdH6agdY-G3YjJ_-PkxayLyBjNM8k4W-Z0Qn-F19heBbogGVLDbqJ2uXAXwsGoLujKspwYU"/>
+<div class="flex-grow min-w-0">
+<span class="text-[10px] font-semibold text-brand-accent tracking-wide uppercase">Siap Minum Dingin</span>
+<h3 class="font-heritage font-bold text-sm text-brand-espresso truncate">Cold Brew Heritage Solo (250ml)</h3>
+<p class="text-[11px] text-brand-muted line-clamp-2 mt-0.5">Siap minum, manis gula kelapa alami, halus dan menyegarkan hari.</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-bold text-xs text-brand-espresso">Rp 38.000</span>
+<button class="px-3 py-1 bg-brand-espresso text-brand-cream text-xs rounded-lg font-medium hover:bg-brand-coffee active:scale-95 transition-all">
+                  Pesan
+                </button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-brand-card p-4 rounded-2xl border border-[#ded5c8] shadow-warm flex gap-3.5 items-center">
+<img alt="Kemasan Biji Sangrai Arabika Lawu" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-[#e4ded4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD90cjfWklHC0TXH-gFf-eT0ZLGMY7687EPSX0V8nzGkf9EKix4LQzdb5raPeUk-HA2Jn62jej0o0t2NQM6r4dAyeO3MG07fEG9xUeUecXe96T0qGn_DYdUYmsv1BBXvpVNOX3bMidMSZGyOxZmfLftFANuGJLlWlJDFBj5A-wEK41ko108F67ahOKX_d4s8D9HHCpTBVFmD-oKV1sLRrCbLKyPcOHmr6_eV1L30Oxc"/>
+<div class="flex-grow min-w-0">
+<span class="text-[10px] font-semibold text-brand-gold tracking-wide uppercase">Single Origin Eksklusif</span>
+<h3 class="font-heritage font-bold text-sm text-brand-espresso truncate">Arabika Sangrai Lawu (200g)</h3>
+<p class="text-[11px] text-brand-muted line-clamp-2 mt-0.5">Single origin lereng Gunung Lawu dengan aroma notes floral &amp; caramel.</p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-bold text-xs text-brand-espresso">Rp 95.000</span>
+<button class="px-3 py-1 bg-brand-espresso text-brand-cream text-xs rounded-lg font-medium hover:bg-brand-coffee active:scale-95 transition-all">
+                  Pesan
+                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProductHighlightsSection -->
+<!-- BEGIN: TestimonialsSection -->
+<!-- 4. Testimoni (Reviews) -->
+<section class="py-10 px-5 bg-[#ebe6dd] border-t border-[#dfd7cc]" data-purpose="testimonials-section" id="testimoni">
+<div class="text-center mb-6">
+<span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Ulasan Pelanggan</span>
+<h2 class="font-heritage text-2xl font-bold text-brand-espresso mt-0.5">Testimoni</h2>
+<p class="text-xs text-brand-muted mt-1">Apa kata para penikmat setia Kopi Solo?</p>
+</div>
+<!-- 4 Reviews Grid / Stack -->
+<div class="space-y-3.5" data-purpose="reviews-container">
+<!-- Testimonial 1 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<img alt="Avatar Ayu Lestari" class="w-9 h-9 rounded-full object-cover border border-brand-gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACYuNDDPn5gAkpH5g-WniWt35AxevmweD2IG3LSrDTsJCTr_wkoLxz7FIx4YKXAXUK0VClIMhCzREjB89GS7K8uhtNA-foejWrakw01AuIRxf4zLs-1OIGclPB99v_LcJ70TLyNfsXJfwGhS_dBGDsjGlqV0y-ZXMSiss9Szy7x9pvLzfJwTlZJJ71LyirNdFgzHxJIS0fs6EByZZ1EgsK_nM7hHUljQ7msApL_X6h"/>
+<div>
+<h3 class="text-xs font-bold text-brand-espresso">Ayu Lestari</h3>
+<span class="text-[10px] text-brand-muted">Surakarta</span>
+</div>
+</div>
+<div aria-label="5 Bintang" class="flex text-brand-gold text-xs">★★★★★</div>
+</div>
+<p class="text-xs text-brand-coffee/90 leading-relaxed italic">
+              "Aroma kopinya harum banget, aftertaste-nya lembut dan cocok diminum sore hari bersama keluarga!"
+            </p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<img alt="Avatar Hendra Saputra" class="w-9 h-9 rounded-full object-cover border border-brand-gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMiljkVPhT9semcPJaiOotQFNt5JoJw_z07eUkwhhHHam9jTBS-tM1YI--Ej8vJH4r0t45fr_3A8bMe2zEkd0DDDCnXSUycgIz5r6OMZPL_ludGdUyb1Eny9CLTxLc9aXNPgDuUUgxCIeO5EgEdi-3c4--AScyB-3nxoITAc7G2XW4ZNhx7osX-A0n7wNb4PTnC8I3UJBwakmh01or1ApMAWiJcOIMcW13whLnt3VU"/>
+<div>
+<h3 class="text-xs font-bold text-brand-espresso">Hendra Saputra</h3>
+<span class="text-[10px] text-brand-muted">Semarang</span>
+</div>
+</div>
+<div aria-label="5 Bintang" class="flex text-brand-gold text-xs">★★★★★</div>
+</div>
+<p class="text-xs text-brand-coffee/90 leading-relaxed italic">
+              "Kopi Rempah Pasargede bener-bener unik, anget di badan dan kemasannya sangat rapi."
+            </p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<img alt="Avatar Maya Kusuma" class="w-9 h-9 rounded-full object-cover border border-brand-gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3HzVlGLt8vkx5nXCOG6lDVfh3H8ZssaWVeub8DNAhofZ_AFaj6QfBn8RQHAH0na-r0aTqlWMMMpQpCo8njH1nHl320kJ2n9qxkcR3-QR87YXARl9pxtfEagwRyA7uW0FOu-PkTG8cGhsiHv03je9kHVkjLnzgmi87Cr_kwEbR84PKKTeCZLC4iUp4hfkrcriwFgqFgHXJON6arvx6vZfdn-n9aUpgli_t7bh0sxoK"/>
+<div>
+<h3 class="text-xs font-bold text-brand-espresso">Maya Kusuma</h3>
+<span class="text-[10px] text-brand-muted">Yogyakarta</span>
+</div>
+</div>
+<div aria-label="5 Bintang" class="flex text-brand-gold text-xs">★★★★★</div>
+</div>
+<p class="text-xs text-brand-coffee/90 leading-relaxed italic">
+              "Pengiriman cepat, packing aman dengan packaging bernuansa batik yang cantik."
+            </p>
+</div>
+<!-- Testimonial 4 -->
+<div class="bg-brand-card p-4 rounded-xl border border-[#ded5c8] shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<img alt="Avatar Tri Wahyuni" class="w-9 h-9 rounded-full object-cover border border-brand-gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsyDZsqa42Y9Ap8IcKwIMtzQmQYyVCikw_xrq3vZRcau-sBoBGaeaVulZUexxyfZCLAatpDge67rKZvQ0BF-MuQtyjQwNzdwKiOQ3CPvd1jQ44Zv_Svbmc0DDJBVcHLHpSs3VcZE61nAU7i-50hJJrVkNI9hKZfxxswlmtcgAnktvKWE2IlaD7gqW_zw1uCpJdJQ_zfD0Dg_U3ba2WwogdIKEQRy7vfQofn-GM5sp_"/>
+<div>
+<h3 class="text-xs font-bold text-brand-espresso">Tri Wahyuni</h3>
+<span class="text-[10px] text-brand-muted">Jakarta Selatan</span>
+</div>
+</div>
+<div aria-label="5 Bintang" class="flex text-brand-gold text-xs">★★★★★</div>
+</div>
+<p class="text-xs text-brand-coffee/90 leading-relaxed italic">
+              "Suka sekali dengan cerita filosofi di setiap kemasannya, rasanya otentik."
+            </p>
+</div>
+</div>
+</section>
+<!-- END: TestimonialsSection -->
+<!-- BEGIN: PromoExplorationSection -->
+<!-- 5. Promosi (Struktur: Exploration) -->
+<section class="py-10 px-5 border-t border-[#dfd7cc]" data-purpose="promo-exploration-section" id="promo">
+<div class="mb-6">
+<span class="text-xs uppercase tracking-widest font-bold text-brand-accent">Eksplorasi Rasa</span>
+<h2 class="font-heritage text-2xl font-bold text-brand-espresso mt-0.5">Cerita &amp; Promo Spesial</h2>
+<p class="text-xs text-brand-muted mt-1">Kenali proses di balik setiap racikan kopi dan nikmati promo terbaik bulan ini.</p>
+</div>
+<div class="space-y-4" data-purpose="promo-cards-container">
+<!-- Promo Card 1: Cerita Pengrajin -->
+<div class="bg-gradient-to-br from-[#f8f5ee] to-[#ece5da] p-4 rounded-2xl border border-[#ded5c8] shadow-sm relative overflow-hidden">
+<div class="pr-2">
+<span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider">Kisah Pengrajin Sangrai</span>
+<h3 class="font-heritage font-bold text-base text-brand-espresso mt-1 mb-1">Pak Manto: 20 Tahun Dedikasi Kopi Solo</h3>
+<p class="text-xs text-brand-muted mb-3 leading-relaxed">
+                Mengenal cara meracik dan menyangrai biji kopi secara manual dengan kuali tanah liat untuk rasa otentik.
+              </p>
+<button class="px-4 py-2 bg-brand-card border border-brand-coffee/30 text-brand-coffee rounded-xl text-xs font-bold hover:bg-brand-coffee hover:text-white transition">
+                Baca Cerita
+              </button>
+</div>
+</div>
+<!-- Promo Card 2: Promo Paket Seduh -->
+<div class="bg-gradient-to-br from-brand-espresso to-brand-coffee text-white p-5 rounded-2xl shadow-warm-lg relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-brand-gold/10 pointer-events-none"></div>
+<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-gold text-brand-espresso uppercase inline-block mb-2">Penawaran Terbatas</span>
+<h3 class="font-heritage font-bold text-lg leading-snug mb-1.5">Promo Paket Seduh Surakarta</h3>
+<p class="text-xs text-brand-cream/80 mb-4 leading-relaxed">
+              Beli 3 varian kopi kemasan apa saja, nikmati <span class="text-brand-gold font-semibold">Gratis Ongkir se-Jawa</span> plus hadiah cangkir enamel klasik.
+            </p>
+<button class="w-full py-2.5 bg-brand-gold text-brand-espresso font-bold text-xs rounded-xl shadow hover:bg-amber-400 active:scale-95 transition">
+              Ambil Promo Sekarang
+            </button>
+</div>
+<!-- Promo Card 3: Koleksi Baru -->
+<div class="bg-[#f8f5ee] p-4 rounded-2xl border border-[#ded5c8] shadow-sm flex items-center justify-between gap-3">
+<div>
+<span class="text-[10px] font-bold text-brand-accent uppercase tracking-wider">Edisi Musim Panen</span>
+<h3 class="font-heritage font-bold text-sm text-brand-espresso mt-0.5">Single Origin Lereng Lawu</h3>
+<p class="text-[11px] text-brand-muted mt-0.5">Stok sangat terbatas, diproses anaerob natural.</p>
+</div>
+<button class="px-3.5 py-2 bg-brand-espresso text-brand-cream text-xs rounded-xl font-medium flex-shrink-0 hover:bg-brand-coffee transition">
+              Cek Stok
+            </button>
+</div>
+</div>
+</section>
+<!-- END: PromoExplorationSection -->
+<!-- BEGIN: SubscriptionSection -->
+<!-- 6a. Ajakan Berlangganan Email -->
+<section class="py-8 px-5 bg-brand-card border-t border-[#dfd7cc]" data-purpose="newsletter-subscribe">
+<div class="text-center mb-4">
+<div class="w-10 h-10 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-brand-gold mb-2">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"></path></svg>
+</div>
+<h2 class="font-heritage text-xl font-bold text-brand-espresso">Langganan Kabar &amp; Promo</h2>
+<p class="text-xs text-brand-muted mt-1 max-w-xs mx-auto">
+            Dapatkan info racikan terbaru, panduan seduh, dan voucher promo eksklusif langsung ke email kamu.
+          </p>
+</div>
+<form class="space-y-2.5 max-w-sm mx-auto" onsubmit="event.preventDefault(); alert('Matur nuwun! Anda telah terdaftar dalam warta Kopi Solo.');">
+<div class="relative">
+<input class="w-full text-xs px-3.5 py-3 rounded-xl border border-[#ded5c8] bg-white text-brand-coffee focus:ring-1 focus:ring-brand-gold focus:border-brand-gold outline-none placeholder:text-brand-muted/70 shadow-sm" placeholder="Masukkan email kamu..." required="" type="email"/>
+</div>
+<button class="w-full py-3 bg-brand-espresso text-brand-cream rounded-xl font-bold text-xs hover:bg-brand-coffee transition-all active:scale-[0.99] shadow-sm" type="submit">
+            Langganan Sekarang
+          </button>
+</form>
+</section>
+<!-- END: SubscriptionSection -->
+</main>
+<!-- BEGIN: MainFooter -->
+<!-- 6b. Kerangka Footer -->
+<footer class="bg-brand-espresso text-brand-cream pt-10 pb-8 px-5 border-t border-brand-coffee" data-purpose="main-footer">
+<!-- Brand & Mission Info -->
+<div class="mb-7">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-7 h-7 rounded-full bg-brand-gold text-brand-espresso flex items-center justify-center font-bold text-xs">
+            KS
+          </div>
+<span class="font-heritage text-lg font-bold text-brand-cream tracking-wide">KOPI SOLO</span>
+</div>
+<p class="text-xs text-brand-cream/70 leading-relaxed max-w-xs">
+          Warisan Cita Rasa Surakarta. Mengusung dedikasi sangrai tradisional dan kehangatan citarasa kopi otentik Nusantara.
+        </p>
+</div>
+<!-- Footer Navigation Links -->
+<div class="grid grid-cols-2 gap-4 mb-7 border-y border-white/10 py-5 text-xs">
+<div>
+<h3 class="font-semibold text-brand-gold uppercase tracking-wider text-[11px] mb-2.5">Navigasi</h3>
+<ul class="space-y-2 text-brand-cream/80">
+<li><a class="hover:text-brand-gold transition-colors" href="#beranda">Beranda</a></li>
+<li><a class="hover:text-brand-gold transition-colors" href="#filosofi">Bahan &amp; Filosofi</a></li>
+<li><a class="hover:text-brand-gold transition-colors" href="#koleksi">Koleksi Produk</a></li>
+<li><a class="hover:text-brand-gold transition-colors" href="#testimoni">Testimoni</a></li>
+<li><a class="hover:text-brand-gold transition-colors" href="#promo">Promo &amp; Cerita</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-brand-gold uppercase tracking-wider text-[11px] mb-2.5">Kontak Resmi</h3>
+<ul class="space-y-2 text-brand-cream/80">
+<li class="flex items-start gap-1.5">
+<span class="text-brand-gold">Tel:</span>
+<a class="hover:underline" href="tel:02715550456">0271-555-0456</a>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-brand-gold">Email:</span>
+<a class="hover:underline break-all" href="mailto:halo@kopisolo.example">halo@kopisolo.example</a>
+</li>
+<li class="text-[11px] text-brand-cream/60 pt-1">
+              Surakarta, Jawa Tengah, Indonesia
+            </li>
+</ul>
+</div>
+</div>
+<!-- Copyright Notice -->
+<div class="text-center text-[11px] text-brand-cream/50">
+<p>© 2026 Kopi Solo. Seluruh hak cipta dilindungi.</p>
+<p class="text-[10px] text-brand-gold/60 mt-1">Warisan Budaya &amp; Rasa Nusantara</p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</div>
+<!-- Interactive JavaScript for Mobile Navigation Toggle -->
+<script data-purpose="mobile-navbar-interactivity">
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIcon = document.getElementById('menuIcon');
+      const closeIcon = document.getElementById('closeIcon');
+      const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking link
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    });
+  </script>
+</body></html>
+
+<!-- Landing Page Kopi Solo - Desktop -->
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#7d562d","on-surface":"#251816","on-primary-fixed-variant":"#484742","surface-container-high":"#fbe3df","surface-container-highest":"#f5ddd9","surface-bright":"#fff8f6","on-error-container":"#93000a","on-primary":"#ffffff","secondary-fixed":"#ffdad4","on-secondary-container":"#795c57","on-surface-variant":"#484740","secondary-container":"#fed7d0","secondary":"#745853","surface-tint":"#605e59","outline-variant":"#cac6bd","on-primary-fixed":"#1c1c18","on-tertiary":"#ffffff","primary-fixed-dim":"#c9c6bf","primary":"#605e59","tertiary-fixed-dim":"#f0bd8b","on-primary-container":"#6c6a64","surface-container":"#ffe9e5","secondary-fixed-dim":"#e3beb8","on-secondary-fixed-variant":"#5b403c","error-container":"#ffdad6","on-secondary":"#ffffff","surface-variant":"#f5ddd9","tertiary-fixed":"#ffdcbd","primary-container":"#efebe4","primary-fixed":"#e6e2db","tertiary-container":"#ffe7d3","inverse-primary":"#c9c6bf","surface-container-low":"#fff0ee","error":"#ba1a1a","on-tertiary-container":"#8a6137","background":"#fff8f6","outline":"#79776f","on-secondary-fixed":"#2b1613","surface":"#fff8f6","inverse-surface":"#3b2d2b","on-background":"#251816","on-tertiary-fixed":"#2c1600","on-tertiary-fixed-variant":"#623f18","surface-container-lowest":"#ffffff","on-error":"#ffffff","inverse-on-surface":"#ffedea","surface-dim":"#edd5d1"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xs":"0.25rem","margin":"3rem","space-md":"1rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","margin-mobile":"1.25rem"},"fontFamily":{"display-lg":["Syne"],"display-lg-mobile":["Syne"],"body-lg":["Inter"],"body-sm":["Inter"],"headline-md":["Syne"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Syne"],"headline-lg-mobile":["Syne"],"headline-lg":["Syne"],"caption-mono":["JetBrains Mono"]},"fontSize":{"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"800"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"800"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"700"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"caption-mono":["11px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-primary-container/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin flex items-center justify-between"><a class="flex items-center gap-space-sm group text-left" data-path="beranda" href="#"><div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">coffee</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-tertiary transition-colors">Kopi Solo</span><span class="font-caption-mono text-caption-mono uppercase text-tertiary mt-space-xs tracking-wider">Surakarta 1928</span></div></a><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-semibold"><a aria-current="page" class="transition-colors text-on-surface font-semibold" data-path="beranda" href="#">Beranda</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="bahan-dan-filosofi" href="#">Bahan &amp; Filosofi</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="koleksi-produk" href="#">Koleksi Produk</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="testimoni" href="#">Testimoni</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="promo-dan-cerita" href="#">Promo &amp; Cerita</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="kontak" href="#">Kontak</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-on-surface text-surface-container-lowest font-label-md text-label-md px-space-lg py-space-sm rounded-full hover:bg-tertiary hover:text-on-tertiary transition-all duration-300" data-path="koleksi-produk" href="#">Pesan Sekarang</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- SECTION 1: HERO SECTION -->
+<section class="w-full bg-primary-container relative overflow-hidden py-16 md:py-24 px-margin">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-caption-mono text-caption-mono uppercase tracking-wider">Tradisi Racikan Keraton &amp; Pasar Tradisional</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight max-w-xl">
+          Warung kopi Ease, Warung kopi terbaik.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+          Nikmati pengalaman kopi autentik di Warung Kopi Solo. Kami menyajikan kopi berkualitas tinggi dengan suasana yang nyaman untuk bersantai bersama teman dan keluarga di jantung Surakarta.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="inline-flex items-center justify-center bg-inverse-surface text-surface-container-lowest font-label-md text-label-md px-8 py-3.5 rounded-full hover:bg-tertiary transition-all duration-300 shadow-sm" href="#koleksi">
+            Kunjungi
+            <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center font-label-md text-label-md text-on-surface hover:text-tertiary transition-colors px-4 py-3" href="#cerita">
+            Lihat Koleksi Kopi
+          </a>
+</div>
+<div class="grid grid-cols-3 gap-6 pt-6 w-full max-w-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-tertiary">1928</span>
+<span class="font-caption-mono text-caption-mono uppercase text-on-surface-variant">Tahun Berdiri</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-tertiary">100%</span>
+<span class="font-caption-mono text-caption-mono uppercase text-on-surface-variant">Biji Lokal Jawa</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-tertiary">24k+</span>
+<span class="font-caption-mono text-caption-mono uppercase text-on-surface-variant">Cangkir Terhidang</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-8 lg:mt-0">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-xl bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Editorial warm coffee shop scene in Surakarta with clear glass of iced latte with milk swirls next to a ceramic white coffee cup on a natural wooden table bathed in morning sunlight, earth tones and cream palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Cd0KvgRdBbRYvLEv5Z5cR-bQTPVtpa7QG7nE0Naz1EYlDvMkox9PMqsE42C4MGhGyyXTdkZGOQN2iRAPeerVNFeWtjQ4SVtev0JZ7cUUwVVZ73S94yAIsdHhZzS5AO6o7yyjl0lIb4tfxvhKBy3wDR22jwwP7v0t6lbAjkL2dr7KBjgAl_laGHUjjkWla20I37yr55UJKj8HaVSt50pNRAC2M9ukOdO1B2Xq_CDD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 p-4 rounded-DEFAULT bg-inverse-surface/80 backdrop-blur-md text-surface-container-lowest flex items-center justify-between">
+<div>
+<p class="font-caption-mono text-caption-mono text-tertiary-fixed-dim uppercase">Racikan Andalan</p>
+<p class="font-headline-sm text-headline-sm text-on-primary">Iced Latte &amp; Tubruk Keraton</p>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">local_cafe</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: KEY DETAILS (Keaslian & Makna Motif) -->
+<section class="w-full bg-surface py-20 px-margin">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-caption-mono text-caption-mono uppercase text-tertiary tracking-widest">// Filosofi &amp; Kualitas</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">Mengenal Kopi Solo</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Setiap biji dan racikan punya cerita, disangrai dengan teliti penuh penghayatan rasa untuk menghadirkan ketenangan dalam setiap sesapan.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col gap-space-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">psychiatry</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Biji Kopi Pilihan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Petikan tangan petani lereng Lawu &amp; Merapi dengan sangrai medium khas tradisi Surakarta yang menjaga karakter manis alami.
+          </p>
+</div>
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col gap-space-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Filosofi Racikan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Melambangkan kehangatan paseduluran dan ketenangan batin masyarakat Jawa dalam merawat ruang sapa dan dialog santun.
+          </p>
+</div>
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col gap-space-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Varian Autentik</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Dari racikan kopi tubruk legendaris, campuran rempah Pasar Gede, hingga teknik cold brew dan latte art modern yang halus.
+          </p>
+</div>
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-low flex flex-col gap-space-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Bahan Alami &amp; Bersih</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Kualitas prima, tanpa bahan pengawet sintesis, proses seduh higienis, dan ramah di lambung untuk kenyamanan minum setiap hari.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3 & 4 COMBINED GRID: PRODUCT HIGHLIGHTS & TESTIMONIALS -->
+<section class="w-full bg-primary-container/40 py-20 px-margin" id="koleksi">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Eksplorasi Koleksi Pilihan -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div>
+<span class="font-caption-mono text-caption-mono uppercase text-tertiary tracking-widest">// Eksplorasi Menu</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">Koleksi Pilihan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Temukan pilihan kopi yang pas untuk menemani momen santai Anda dengan racikan presisi artisan kami.
+          </p>
+</div>
+<!-- Product Cards (Dark Roast Card Container Style matching Design Guide) -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1: Latte Art -->
+<div class="bg-inverse-surface text-surface-container-lowest p-space-md rounded-xl flex flex-col sm:flex-row items-center gap-space-md hover:bg-on-surface transition-colors shadow-md">
+<div class="w-full sm:w-28 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-secondary">
+<img class="w-full h-full object-cover" data-alt="Close-up of iced caramel latte served in tall glass with creamy milk patterns and espresso layers inside a rustic coffee shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZFUc5T8KNiZOMWfx0zogeb2R13PiwWXxqT3eawZ6-4o-s-oII1yIWVYQK_Lzp_HPvc_YZpscYQqpjNp73eUeKF2yag9O8UcYWzrfoGwiWs8Jg50nmhMkq3PEdRAroztSdx2S7ByyQViSsWDmQRcRO6ZuNmdhlfU9SwN5sU2FNx7DFpnLfQXnCDGAiTU9yXv_ZmIFkKpkkhxK2doNt2BUe8Vu4uBjS41X0GULD5JvL"/>
+</div>
+<div class="flex flex-col justify-between flex-grow w-full gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Latte Art</h3>
+<span class="font-caption-mono text-caption-mono text-tertiary-fixed font-semibold">Rp 35.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">
+                Espresso dan susu lembut dengan sentuhan latte art yang cantik dan velvety mikrofoam.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs px-2 py-0.5 rounded-full bg-tertiary/30 text-tertiary-fixed font-caption-mono">Favorit</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-white/10 text-primary-fixed-dim font-caption-mono">Susu Segar</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Cappuccino -->
+<div class="bg-inverse-surface text-surface-container-lowest p-space-md rounded-xl flex flex-col sm:flex-row items-center gap-space-md hover:bg-on-surface transition-colors shadow-md">
+<div class="w-full sm:w-28 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-secondary">
+<img class="w-full h-full object-cover" data-alt="Top down overhead angle of a warm cappuccino with perfectly poured heart rosette foam art in a brown ceramic mug" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCZqzZMYztxxk3vbT446pUDDQ672BDE6shpusrOkt4bgqMlsYRI2k3Z_K8MM7v0EA8Q9UtrbVcyOSmZ9veR1VQa_5qI0OMf5HTflnW_l_fdy5kZeg60mXnjdlDt2ipVygCYw-fCiZJp7KZI-QdyKtLCYhUhg0XLkNnQuWnbm9cJdxYTcYubj4KLhwYLiz_W6z7Z1llT4kwGFHKQpPerl-YDWxm1IAOgPrVqRT6krcM"/>
+</div>
+<div class="flex flex-col justify-between flex-grow w-full gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Cappuccino</h3>
+<span class="font-caption-mono text-caption-mono text-tertiary-fixed font-semibold">Rp 32.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">
+                Espresso dengan susu hangat dan busa tebal, creamy dan seimbang dengan taburan bubuk cokelat lokal.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs px-2 py-0.5 rounded-full bg-white/10 text-primary-fixed-dim font-caption-mono">Busa Tebal</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-white/10 text-primary-fixed-dim font-caption-mono">Klasik</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Flat White -->
+<div class="bg-inverse-surface text-surface-container-lowest p-space-md rounded-xl flex flex-col sm:flex-row items-center gap-space-md hover:bg-on-surface transition-colors shadow-md">
+<div class="w-full sm:w-28 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-secondary">
+<img class="w-full h-full object-cover" data-alt="Warm flat white coffee in a transparent tumbler glass showcasing thin microfoam layer on top of espresso on a polished stone counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAplzSnK_Ca0BsKZT-s9ZKttW2vacqrHlf-A8bWbX8W1BND4o9l-bfZKJ5ySU77k7pCVXGmpVXGtBpnGW8MDvFq9W6MCwc1_GOD2tEv2XVCXHs7xegFCTDuHURdvRFF-Kqo-NqNopRBHQFjnTFbZuBwsEqOLb_sADfu4Z3NC0CBpQEpucMyxwPjV1W5lNZaNaFt1NUGZYH894vMglFquRs4QpHBuKK_BBmtIk4xOsgQ"/>
+</div>
+<div class="flex flex-col justify-between flex-grow w-full gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Flat White</h3>
+<span class="font-caption-mono text-caption-mono text-tertiary-fixed font-semibold">Rp 30.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">
+                Espresso intens berpadu susu dan mikrofoam tipis yang halus untuk kenikmatan kafein yang murni.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs px-2 py-0.5 rounded-full bg-white/10 text-primary-fixed-dim font-caption-mono">Double Ristretto</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Kopi Rempah Pasargede -->
+<div class="bg-inverse-surface text-surface-container-lowest p-space-md rounded-xl flex flex-col sm:flex-row items-center gap-space-md hover:bg-on-surface transition-colors shadow-md">
+<div class="w-full sm:w-28 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-secondary">
+<img class="w-full h-full object-cover" data-alt="Traditional hot spiced coffee brewed with cloves, cinnamon sticks and cardamom pods beside ancient clay cup in ambient warm Javanese lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoVWAKvbGEqPFNejYMaH04nkBUn51ALOxOSksa1X05MprQY4GQGshjqLxh93JKufPeFZXmMW4s4K1QYL5nQrdybc1B3l6dMjeYmUoOH2nCr3dznTGWPDQ1EiD9Xl9dbirAzu-FNEpPKwcVSeNoXWHjJ1wpb077CEzD22YJ-oqxAAku1HbGfK0dxBCyaN6vTk8KXRFOnye8j9cbP-la05cY86Lm6JuC-KX5nN7IsEa4"/>
+</div>
+<div class="flex flex-col justify-between flex-grow w-full gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Kopi Rempah Pasargede</h3>
+<span class="font-caption-mono text-caption-mono text-tertiary-fixed font-semibold">Rp 75.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">
+                Sentuhan cengkeh, kapulaga, dan kayu manis khas Pasar Gede Surakarta berpadu gula kelapa murni.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs px-2 py-0.5 rounded-full bg-tertiary/30 text-tertiary-fixed font-caption-mono">Spesial Warisan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Testimoni / Review Pelanggan -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div>
+<span class="font-caption-mono text-caption-mono uppercase text-tertiary tracking-widest">// Ulasan Nyata</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">Review Pelanggan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Cerita jujur dari para penikmat kopi yang singgah di kedai kami.
+          </p>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Review 1: Agung -->
+<div class="p-4 rounded-DEFAULT bg-surface-container flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm text-headline-sm flex-shrink-0">
+              A
+            </div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Agung</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Latte Art nya keren dan kreatif!"</p>
+</div>
+</div>
+<!-- Review 2: Restu -->
+<div class="p-4 rounded-DEFAULT bg-surface-container flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm text-headline-sm flex-shrink-0">
+              R
+            </div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Restu</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Mungkin Capuccino nya bisa lebih manis sedikit, tapi aromanya juara."</p>
+</div>
+</div>
+<!-- Review 3: Dean -->
+<div class="p-4 rounded-DEFAULT bg-surface-container flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm text-headline-sm flex-line flex-shrink-0">
+              D
+            </div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Dean</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Suka Latte Art nya, tekstur susunya pas banget di lidah."</p>
+</div>
+</div>
+<!-- Review 4: Hilbram -->
+<div class="p-4 rounded-DEFAULT bg-surface-container flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm text-headline-sm flex-shrink-0">
+              H
+            </div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Hilbram</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Tempatnya tenang dan sangat nyaman buat kerja santai."</p>
+</div>
+</div>
+<!-- Review 5: Ayu Lestari -->
+<div class="p-4 rounded-DEFAULT bg-surface-container flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-sm text-headline-sm flex-shrink-0">
+              A
+            </div>
+<div class="flex flex-col flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Ayu Lestari (Surakarta)</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Aroma kopinya harum banget, aftertaste lembut dan tidak asam!"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: CERITA SINGKAT & PROMO -->
+<section class="w-full bg-surface py-20 px-margin" id="cerita">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Cerita Singkat Bento Row -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<span class="font-caption-mono text-caption-mono uppercase text-tertiary tracking-widest">// Filosofi Warung</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Cerita Singkat</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Warung Kopi Solo hadir untuk menjadi tempat berkumpul yang nyaman. Kami percaya bahwa kopi bukan hanya minuman, melainkan penghubung momen indah bersama orang terdekat di tengah laju kota yang bergegas.
+          </p>
+<div class="p-space-lg rounded-DEFAULT bg-inverse-surface text-surface-container-lowest max-w-md shadow-md mt-space-xs">
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim italic">
+              "Kopi yang autentik, suasana yang hangat."
+            </p>
+<p class="font-caption-mono text-caption-mono uppercase text-primary-fixed-dim mt-2 tracking-wider">
+              — Semangat Warung Kopi Solo
+            </p>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="relative w-full h-80 rounded-xl overflow-hidden shadow-lg bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Rich dark espresso shot in a small ceramic cup on a saucer showing golden hazelnut crema in an intimate dim-lit coffee bar setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk0mrXgfoAnAZrGmhwX05SiKvR8SAklnp5UfQzcjqTLmuvC_M-bMI2S_m_N7mwglNFtoQVHsCaWTpKyscPAYWVxr5sid-Ch7x6yX25d5_FpKfmKxAPWfWTLxFZhpBD5xpZqc1bjYbdmgF8GwG3VAxTdxRdlgcqmu6zBi5Jq5_hrIZ4uINd0H5LHI76DAQ-hTUxwbIT49fcN3cunjTnlAjY0ZQ8uot8OriX8ZZVMIKg"/>
+</div>
+</div>
+</div>
+<!-- Promo Banner -->
+<div class="w-full rounded-xl bg-gradient-to-r from-inverse-surface via-on-surface to-inverse-surface text-surface-container-lowest p-8 md:p-12 relative overflow-hidden shadow-xl">
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary/40 text-tertiary-fixed-dim text-caption-mono uppercase tracking-wider w-max">
+<span class="material-symbols-outlined text-[16px]">local_offer</span>
+              Promo Khusus Pekan Ini
+            </div>
+<h3 class="font-headline-lg text-headline-lg text-on-primary">Promo Seragam &amp; Paket Seduh</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim">
+              Beli 3 varian kopi kemasan biji sangrai khas Solo, dapatkan Gratis Ongkir ke seluruh Pulau Jawa dan bonus cangkir enamel klasik.
+            </p>
+</div>
+<div class="flex-shrink-0">
+<button class="bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md px-8 py-3.5 rounded-full hover:bg-tertiary hover:text-on-tertiary transition-all duration-300 shadow-md transform hover:scale-105" id="promoBtn">
+              Ambil Promo
+            </button>
+</div>
+</div>
+<!-- Subtle decorative circle overlay -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-tertiary/10 blur-3xl pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: NEWSLETTER & AJAKAN BERLANGGANAN -->
+<section class="w-full bg-primary-container py-20 px-margin border-none">
+<div class="max-w-4xl mx-auto flex flex-col items-center text-center gap-space-md">
+<div class="w-14 h-14 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">mark_email_read</span>
+</div>
+<span class="font-caption-mono text-caption-mono uppercase text-tertiary tracking-widest">// Warta &amp; Edukasi</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Langganan Katalog &amp; Info Promo</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+        Dapatkan warta panen single origin terbaru dari petani lokal Jawa, edukasi racikan seduh manual, serta voucher diskon khusus pelanggan setia setiap bulannya.
+      </p>
+<form class="w-full max-w-md flex flex-col sm:flex-row gap-2 mt-space-sm" id="subscribeForm" onsubmit="event.preventDefault(); handleSubscribe();">
+<input class="flex-grow px-4 py-3 rounded-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 outline-none focus:ring-2 focus:ring-tertiary text-body-md" id="emailInput" placeholder="Masukkan alamat email Anda..." required="" type="email"/>
+<button class="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-8 py-3 rounded-full hover:bg-tertiary transition-all duration-300 flex-shrink-0" type="submit">
+          Langganan Sekarang
+        </button>
+</form>
+<p class="font-caption-mono text-caption-mono text-tertiary hidden" id="subscribeFeedback">
+        Terima kasih! Warta seduh perdana telah dikirimkan ke kotak masuk Anda.
+      </p>
+<div class="flex items-center gap-6 mt-4 text-on-surface-variant text-caption-mono">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> Tanpa Spam
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> Berhenti Langganan Kapan Saja
+        </span>
+</div>
+</div>
+</section>
+<!-- Interactive Script -->
+<script>
+    function handleSubscribe() {
+      const email = document.getElementById('emailInput').value;
+      const feedback = document.getElementById('subscribeFeedback');
+      if (email) {
+        feedback.classList.remove('hidden');
+        document.getElementById('emailInput').value = '';
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 5000);
+      }
+    }
+
+    document.getElementById('promoBtn')?.addEventListener('click', () => {
+      alert('Voucher promo "SEDOHSOLO1928" telah aktif! Silakan nikmati Gratis Ongkir se-Jawa.');
+    });
+  </script>
+</div></main><footer class="w-full bg-primary-container text-on-surface"><div class="w-full px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">coffee</span></div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Kopi Solo</span></div><p class="font-caption-mono text-caption-mono uppercase text-tertiary">Surakarta 1928 • Cita Rasa Warisan Leluhur</p><p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-space-xs">Merawat keheningan dan kehangatan tradisi sangrai kopi Jawa di jantung Kota Surakarta. Disajikan dengan ketenangan, etika luhur, dan ketelitian artisan.</p></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">Jelajahi Menu</span><div class="flex flex-col gap-space-xs"><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" data-path="beranda" href="#">Beranda Utama</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" data-path="bahan-dan-filosofi" href="#">Bahan &amp; Filosofi Racik</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" data-path="koleksi-produk" href="#">Koleksi Biji Kopi &amp; Seduh</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" data-path="promo-dan-cerita" href="#">Warta &amp; Cerita Sangrai</a></div></div><div class="lg:col-span-5 flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">Kantor &amp; Rumah Sangrai</span><div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant"><div class="flex items-start gap-space-sm"><span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5">location_on</span><span>Jl. Slamet Riyadi No. 1928, Keprabon, Surakarta, Jawa Tengah</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px] text-tertiary">call</span><span>Telepon: 0271-555-0456</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px] text-tertiary">mail</span><span>Email: halo@kopisolo.example</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px] text-tertiary">schedule</span><span>Buka Setiap Hari: 08.00 - 22.00 WIB</span></div></div></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-caption-mono text-caption-mono text-on-surface-variant">© 1928–2025 Kopi Solo Surakarta. Hak Cipta Dilindungi.</p><div class="flex items-center gap-space-lg font-caption-mono text-caption-mono text-on-surface-variant"><a class="hover:text-on-surface transition-colors" data-path="kontak" href="#">Kebijakan Privasi</a><a class="hover:text-on-surface transition-colors" data-path="kontak" href="#">Syarat Pelayanan</a><a class="hover:text-on-surface transition-colors" data-path="kontak" href="#">Etika Seduh Solo</a></div></div></div></footer></body></html>
